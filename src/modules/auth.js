@@ -1,19 +1,24 @@
 import { createAction, handleActions } from 'redux-actions';
 import produce from 'immer';
+import { createRequestActionTypes } from '../lib/createRequestSaga';
 
 // 액션 타입 정의
 // 액션 타입은 주로 대문자로 작성합니다.
 const CHANGE_FIELD = 'auth/CHANGE_FIELD';
 const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
 
-const REGISTER = 'auth/REGISTER';
-const REGISTER_SUCCESS = 'auth/REGISTER_SUCCESS';
-const REGISTER_FAILURE = 'auth/REGISTER_FAILURE';
+// const REGISTER = 'auth/REGISTER';
+// const REGISTER_SUCCESS = 'auth/REGISTER_SUCCESS';
+// const REGISTER_FAILURE = 'auth/REGISTER_FAILURE';
 
-const LOGIN = 'auth/LOGIN';
-const LOGIN_SUCCESS = 'auth/LOGIN_SUCCESS';
-const LOGIN_FAILURE = 'auth/LOGIN_FAILURE';
+// const LOGIN = 'auth/LOGIN';
+// const LOGIN_SUCCESS = 'auth/LOGIN_SUCCESS';
+// const LOGIN_FAILURE = 'auth/LOGIN_FAILURE';
+const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] =
+    createRequestActionTypes('auth/REGISTER');
 
+const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] =
+    createRequestActionTypes('auth/LOGIN');
 // 액션 생성함수 정의
 // 액션 생성함수는 주로 camelCase로 작성합니다.
 export const changeField = createAction(
