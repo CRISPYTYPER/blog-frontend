@@ -33,7 +33,7 @@ const QuillWrapper = styled.div`
     }
 `;
 
-const Editor = ([title, body, onChangeField]) => {
+const Editor = ({ title, body, onChangeField }) => {
     const quillElement = useRef(null); // Quill을 적용할 DivElement를 설정
     const quillInstance = useRef(null); // Quill 인스턴스를 설정
 
