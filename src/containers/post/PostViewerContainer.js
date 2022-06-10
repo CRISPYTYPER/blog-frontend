@@ -5,18 +5,19 @@ import { readPost, unloadPost } from '../../modules/post';
 import PostViewer from '../../components/post/PostViewer';
 import PostActionButtons from '../../components/post/PostActionButtons';
 import { setOriginalPost } from '../../modules/write';
-import user from '../../modules/user';
 
 const PostViewerContainer = ({ match, history }) => {
     // 처음 마운트될 때 포스트 읽기 API 요청
     const { postId } = match.params;
     const dispatch = useDispatch();
-    const { post, error, loading } = useSelector(({ post, loading, user }) => ({
-        post: post.post,
-        error: post.error,
-        loading: loading['post/READ_POST'],
-        user: user.user,
-    }));
+    const { post, error, loading, user } = useSelector(
+        ({ post, loading, user }) => ({
+            post: post.post,
+            error: post.error,
+            loading: loading['post/READ_POST'],
+            user: user.user,
+        }),
+    );
 
     useEffect(() => {
         dispatch(readPost(postId));
